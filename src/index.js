@@ -268,16 +268,34 @@ const CcData = {
 
 // Exercise 4:
 let Poster = ({ posterData }) => {
-  /* let data = {...posterData}; */
   const { image, title, text } = posterData;
   return (
-    <div>
-      <img src={image} alt='React logo'/>
-      <p>{title}</p>
-      <p>{text}</p>
+    <div className='poster'>
+      <div className='image-container'>
+        <img src={image} alt='React logo'/>
+      </div>
+      <div className='title'>
+        <span className='first-letter'>
+          {title.substring(0,1)}
+        </span>
+        <span className="center">
+          {title.substring(1, title.length - 1)}
+        </span>
+        <span className="last-letter">
+          {title.substring(title.length - 1)}
+        </span>
+      </div>
+      <div className='caption'>{text}</div>
     </div>
   );
 }
+Poster.propTypes = {
+  posterData: PropTypes.shape({
+    image: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
+  }).isRequired
+};
 
 let testPoster = {
   image: require("../src/images/logo192.png"),
