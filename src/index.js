@@ -24,7 +24,6 @@ function Tweet({ tweet }) {
     </div>
   );
 }
-
 Tweet.propTypes = {
   tweet: PropTypes.shape({
     message: PropTypes.string.isRequired,
@@ -69,7 +68,6 @@ function Author({ author }) {
     </span>
   );
 }
-
 Author.propTypes = {
   author: PropTypes.shape({
     name: PropTypes.string.isRequired,
@@ -170,13 +168,24 @@ const testData = {
 
 // Exercise 1:
 const AddressLabel = ({ person }) => {
+  let { firstName, lastName, streetAddress, city, state, zip } = person;
   return (
-    <div>
-      <p>{person.firstName} {person.lastName}</p>
-      <p>{person.streetAddress}</p>
-      <p>{person.city} {person.state} {person.zip}</p>
+    <div className='mailing-label'>
+      <div className='ex1-name'>{firstName} {lastName}</div>
+      <div className='addressLine1'>{streetAddress}</div>
+      <div className='addressLine2'>{city} {state} {zip}</div>
     </div>
   );
+}
+AddressLabel.propTypes = {
+  person: PropTypes.shape({
+    firstName: PropTypes.string.isRequired,
+    lastName: PropTypes.string.isRequired,
+    streetAddress: PropTypes.string.isRequired,
+    city: PropTypes.string.isRequired,
+    state: PropTypes.string.isRequired,
+    zip: PropTypes.string.isRequired
+  }).isRequired
 }
 
 const testPerson1 = {
@@ -191,18 +200,22 @@ const testPerson1 = {
 // Exercise 2:
 const Envelope = ({ toPerson, fromPerson }) => {
   return (
-    <div>
-      <AddressLabel person={fromPerson}/>
-      <br/>
-      <AddressLabel person={toPerson}/>
-      <br/>
+    <div className='envelope'>
+      <AddressLabel className='from-label' person={fromPerson}/>
+      <div className='to-label'>
+        <AddressLabel person={toPerson}/>
+      </div>
       <Stamp/>
     </div>
   );
 }
 
 const Stamp = () => {
-  return <p>STAMP</p>;
+  return (
+    <div className='stamp'>
+      <span className='text'>STAMP</span>
+    </div>
+  );
 }
 
 const testPerson2 = {
