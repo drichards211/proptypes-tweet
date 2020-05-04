@@ -4,6 +4,130 @@ body {
   font-family: sans-serif;
 }
 
+/* ENVELOPE STYLING */
+.envelope {
+  position: relative;
+  border: 1px solid #ccc;
+  width: 700px;
+  height: 350px;
+}
+.from-label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+.to-label {
+  position: absolute;
+  top: 150px;
+  left: 280px;
+}
+.stamp {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: 1px solid #999;
+  width: 70px;
+  height: 80px;
+  text-transform: uppercase;
+  color: #777;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.stamp .text {
+  transform: rotate(-45deg);
+}
+
+/*CREDIT CARD STYLING*/
+.credit-card {
+  position: relative;
+  width: 600px;
+  height: 378px;
+  border-radius: 24px;
+  background-color: #2854A1;
+  color: #fff;
+  padding-left: 40px;
+}
+.cc-name, .card-number, .first-four-digits, .expiration {
+  font-family: "Courier", monospace;
+  position: absolute;
+  text-transform: uppercase;
+}
+.cc-name {
+  bottom: 40px;
+  font-size: 36px;
+}
+.card-number {
+  bottom: 160px;
+  font-size: 46px;
+}
+.first-four-digits {
+  font-size: 20px;
+  font-weight: 200;
+  font-family: sans-serif;
+  bottom: 140px;
+}
+.expiration {
+  font-size: 36px;
+  left: 240px;
+  bottom: 100px;
+}
+.valid-thru {
+  width: 30px;
+  display: inline-block;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+.bank-name {
+  position: absolute;
+  right: 40px;
+  top: 40px;
+  font-size: 50px;
+}
+
+/* POSTER STYLING */
+.poster {
+  width: 600px;
+  height: 400px;
+  text-align: center;
+  border: 2px solid #e91e63;
+  padding: 20px 50px;
+  background: #222;
+}
+.image-container {
+  width: 550px;
+  height: 300px;
+  border: 2px solid #e91e63;
+  margin: 0 auto;
+}
+.title {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 60px;
+  font-family: "Crimson Text", "Georgia", serif;
+  margin-bottom: -8px;
+}
+.title .center {
+  padding-top: 2px;
+  display: inline-block;
+}
+.title .first-letter,
+.title .last-letter {
+  font-size: 70px;
+  vertical-align: top;
+}
+.caption {
+  font-family: sans-serif;
+  color: #fff;
+  font-size: 20px;
+}
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* TWEET STYLING */
 .tweet {
   border: 1px solid #ccc;
   width: 564px;
@@ -14,48 +138,40 @@ body {
   font-size: 14px;
   line-height: 18px;
 }
-
 .avatar {
   width: 48px;
   height: 48px;
   border-radius: 5px;
   margin-right: 10px;
 }
-
 .name {
   font-weight: bold;
   margin-bottom: 0.5em;
   margin-right: 0.3em;
 }
-
 .handle {
   color: #8899a6;
   font-size: 13px;
 }
-
 .time {
   padding-left: 0.3em;
   color: #8899a6;
 }
-
 .time::before {
   content: "\00b7";
   padding-right: 0.3em;
 }
-
 .buttons {
   margin-top: 10px;
   margin-left: 2px;
   font-size: 1.4em;
   color: #aab8c2;
 }
-
 .reply-button, .retweet-button,
 .like-button, .more-options-button {
   width: 80px;
   display: inline-block;
 }
-
 .like-count, .retweet-count {
   position: relative;
   bottom: 2px;
@@ -64,7 +180,7 @@ body {
   font-weight: bold;
 }
 
-/* Email styling */
+/* EMAIL STYLING */
 .email {
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;

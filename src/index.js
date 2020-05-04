@@ -24,7 +24,6 @@ function Tweet({ tweet }) {
     </div>
   );
 }
-
 Tweet.propTypes = {
   tweet: PropTypes.shape({
     message: PropTypes.string.isRequired,
@@ -69,7 +68,6 @@ function Author({ author }) {
     </span>
   );
 }
-
 Author.propTypes = {
   author: PropTypes.shape({
     name: PropTypes.string.isRequired,
@@ -170,13 +168,24 @@ const testData = {
 
 // Exercise 1:
 const AddressLabel = ({ person }) => {
+  let { firstName, lastName, streetAddress, city, state, zip } = person;
   return (
-    <div>
-      <p>{person.firstName} {person.lastName}</p>
-      <p>{person.streetAddress}</p>
-      <p>{person.city} {person.state} {person.zip}</p>
+    <div className='mailing-label'>
+      <div className='ex1-name'>{firstName} {lastName}</div>
+      <div className='addressLine1'>{streetAddress}</div>
+      <div className='addressLine2'>{city} {state} {zip}</div>
     </div>
   );
+}
+AddressLabel.propTypes = {
+  person: PropTypes.shape({
+    firstName: PropTypes.string.isRequired,
+    lastName: PropTypes.string.isRequired,
+    streetAddress: PropTypes.string.isRequired,
+    city: PropTypes.string.isRequired,
+    state: PropTypes.string.isRequired,
+    zip: PropTypes.string.isRequired
+  }).isRequired
 }
 
 const testPerson1 = {
@@ -191,18 +200,24 @@ const testPerson1 = {
 // Exercise 2:
 const Envelope = ({ toPerson, fromPerson }) => {
   return (
-    <div>
-      <AddressLabel person={fromPerson}/>
-      <br/>
-      <AddressLabel person={toPerson}/>
-      <br/>
+    <div className='envelope'>
+      <div className='from-label'>
+        <AddressLabel person={fromPerson}/>
+      </div>
+      <div className='to-label'>
+        <AddressLabel person={toPerson}/>
+      </div>
       <Stamp/>
     </div>
   );
 }
 
 const Stamp = () => {
-  return <p>STAMP</p>;
+  return (
+    <div className='stamp'>
+      <span className='text'>STAMP</span>
+    </div>
+  );
 }
 
 const testPerson2 = {
@@ -219,15 +234,27 @@ const testPerson2 = {
 
 // Exercise 3:
 const CreditCard = ({ cardInfo }) => {
+  let {name, expDate, number, bankName} = cardInfo;
   return (
-    <div>
-      <p className='bank-name'>{cardInfo.bankName}</p>
-      <p>{cardInfo.number}</p>
-      <p>{cardInfo.expDate}</p>
-      <p>{cardInfo.name}</p>
+    <div className='credit-card'>
+      <div className='bank-name'>{bankName}</div>
+      <div className='card-number'>{number}</div>
+      <div className='first-four-digits'>{number.substring(0, 4)}</div>
+      <div className='expiration'>
+        <span className='valid-thru'>Valid Thru</span> {expDate}
+      </div>
+      <div className='cc-name'>{name}</div>
     </div>
   );
 }
+CreditCard.propTypes = {
+  cardInfo: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    number: PropTypes.string.isRequired,
+    expDate: PropTypes.string.isRequired,
+    bankName: PropTypes.string.isRequired
+  }).isRequired
+};
 
 const CcData = {
   name: 'John Smiley',
@@ -241,16 +268,34 @@ const CcData = {
 
 // Exercise 4:
 let Poster = ({ posterData }) => {
-  /* let data = {...posterData}; */
   const { image, title, text } = posterData;
   return (
-    <div>
-      <img src={image} alt='React logo'/>
-      <p>{title}</p>
-      <p>{text}</p>
+    <div className='poster'>
+      <div className='image-container'>
+        <img src={image} alt='React logo'/>
+      </div>
+      <div className='title'>
+        <span className='first-letter'>
+          {title.substring(0,1)}
+        </span>
+        <span className="center">
+          {title.substring(1, title.length - 1)}
+        </span>
+        <span className="last-letter">
+          {title.substring(title.length - 1)}
+        </span>
+      </div>
+      <div className='caption'>{text}</div>
     </div>
   );
 }
+Poster.propTypes = {
+  posterData: PropTypes.shape({
+    image: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
+  }).isRequired
+};
 
 let testPoster = {
   image: require("../src/images/logo192.png"),
