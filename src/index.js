@@ -201,7 +201,9 @@ const testPerson1 = {
 const Envelope = ({ toPerson, fromPerson }) => {
   return (
     <div className='envelope'>
-      <AddressLabel className='from-label' person={fromPerson}/>
+      <div className='from-label'>
+        <AddressLabel person={fromPerson}/>
+      </div>
       <div className='to-label'>
         <AddressLabel person={toPerson}/>
       </div>
@@ -232,15 +234,27 @@ const testPerson2 = {
 
 // Exercise 3:
 const CreditCard = ({ cardInfo }) => {
+  let {name, expDate, number, bankName} = cardInfo;
   return (
-    <div>
-      <p className='bank-name'>{cardInfo.bankName}</p>
-      <p>{cardInfo.number}</p>
-      <p>{cardInfo.expDate}</p>
-      <p>{cardInfo.name}</p>
+    <div className='credit-card'>
+      <div className='bank-name'>{bankName}</div>
+      <div className='card-number'>{number}</div>
+      <div className='first-four-digits'>{number.substring(0, 4)}</div>
+      <div className='expiration'>
+        <span className='valid-thru'>Valid Thru</span> {expDate}
+      </div>
+      <div className='cc-name'>{name}</div>
     </div>
   );
 }
+CreditCard.propTypes = {
+  cardInfo: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    number: PropTypes.string.isRequired,
+    expDate: PropTypes.string.isRequired,
+    bankName: PropTypes.string.isRequired
+  }).isRequired
+};
 
 const CcData = {
   name: 'John Smiley',

@@ -4,25 +4,23 @@ body {
   font-family: sans-serif;
 }
 
+/* ENVELOPE STYLING */
 .envelope {
   position: relative;
   border: 1px solid #ccc;
   width: 700px;
   height: 350px;
 }
-
 .from-label {
   position: absolute;
   top: 10px;
   left: 10px;
 }
-
 .to-label {
   position: absolute;
   top: 150px;
   left: 280px;
 }
-
 .stamp {
   position: absolute;
   top: 10px;
@@ -37,11 +35,58 @@ body {
   align-items: center;
   justify-content: center;
 }
-
 .stamp .text {
   transform: rotate(-45deg);
 }
 
+/*CREDIT CARD STYLING*/
+.credit-card {
+  position: relative;
+  width: 600px;
+  height: 378px;
+  border-radius: 24px;
+  background-color: #2854A1;
+  color: #fff;
+  padding-left: 40px;
+}
+.cc-name, .card-number, .first-four-digits, .expiration {
+  font-family: "Courier", monospace;
+  position: absolute;
+  text-transform: uppercase;
+}
+.cc-name {
+  bottom: 40px;
+  font-size: 36px;
+}
+.card-number {
+  bottom: 160px;
+  font-size: 46px;
+}
+.first-four-digits {
+  font-size: 20px;
+  font-weight: 200;
+  font-family: sans-serif;
+  bottom: 140px;
+}
+.expiration {
+  font-size: 36px;
+  left: 240px;
+  bottom: 100px;
+}
+.valid-thru {
+  width: 30px;
+  display: inline-block;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+.bank-name {
+  position: absolute;
+  right: 40px;
+  top: 40px;
+  font-size: 50px;
+}
+
+/* TWEET STYLING */
 .tweet {
   border: 1px solid #ccc;
   width: 564px;
@@ -52,48 +97,40 @@ body {
   font-size: 14px;
   line-height: 18px;
 }
-
 .avatar {
   width: 48px;
   height: 48px;
   border-radius: 5px;
   margin-right: 10px;
 }
-
 .name {
   font-weight: bold;
   margin-bottom: 0.5em;
   margin-right: 0.3em;
 }
-
 .handle {
   color: #8899a6;
   font-size: 13px;
 }
-
 .time {
   padding-left: 0.3em;
   color: #8899a6;
 }
-
 .time::before {
   content: "\00b7";
   padding-right: 0.3em;
 }
-
 .buttons {
   margin-top: 10px;
   margin-left: 2px;
   font-size: 1.4em;
   color: #aab8c2;
 }
-
 .reply-button, .retweet-button,
 .like-button, .more-options-button {
   width: 80px;
   display: inline-block;
 }
-
 .like-count, .retweet-count {
   position: relative;
   bottom: 2px;
@@ -102,7 +139,7 @@ body {
   font-weight: bold;
 }
 
-/* Email styling */
+/* EMAIL STYLING */
 .email {
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
